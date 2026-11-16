@@ -9,3 +9,22 @@
 @media (max-width: 350px) {
   .brand .wordmark { font-size: 38px; }
 }
+
+.ui-icon{display:inline-block;width:18px;height:18px;flex:0 0 18px;background:currentColor;mask:var(--icon) center/contain no-repeat;vertical-align:middle;pointer-events:none}
+.icon-arrow-right{--icon:url("icons/arrow-right.svg")}
+.icon-arrow-left{--icon:url("icons/arrow-left.svg")}
+.icon-arrow-up-right{--icon:url("icons/arrow-up-right.svg")}
+.icon-check{--icon:url("icons/check.svg")}
+.button{gap:8px}
+.concept-figure{margin-inline:0}
+.figure-step{padding:12px 0;border-bottom:1px solid var(--line)}
+.figure-step>p{font-size:.85rem;color:var(--muted);margin-bottom:8px}
+.figure-cells{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.figure-cell{padding:8px 10px;background:#eaf0e4;border:1px solid #cad8c6;border-radius:8px;font-weight:600}
+.figure-cells .ui-icon{width:14px;flex-basis:14px}
+.concept-figure figcaption{font-size:.9rem;margin-top:14px;color:var(--muted)}
+.pipeline{overflow-x:auto}
+.pipeline table{min-width:400px;text-align:center}
+.pipeline th:first-child{width:48px}
+.pipeline th,.pipeline td{padding:8px 4px;text-align:center;font-size:.8rem}
+.pipeline .active-stage{background:#eaf0e4;color:var(--forest)}

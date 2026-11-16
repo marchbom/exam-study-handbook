@@ -81,8 +81,17 @@ function escapeHtml(value) {
 const slots = (course) =>
   chapters.map((_, ci) => ci).filter((ci) => chapters[ci].course === course);
 const courseURL = (course) => `#course/${course.slug}`;
+function icon(name) {
+  return `<span class="ui-icon icon-${name}" aria-hidden="true"></span>`;
+}
+function buttonLabel(label) {
+  return escapeHtml(label)
+    .replaceAll("→", icon("arrow-right"))
+    .replaceAll("←", icon("arrow-left"))
+    .replaceAll("✓", icon("check"));
+}
 const button = (url, label, secondary = false) =>
-  `<a class="button${secondary ? " secondary" : ""}" href="${url}">${label}</a>`;
+  `<a class="button${secondary ? " secondary" : ""}" href="${url}">${buttonLabel(label)}</a>`;
 const sectionKey = (ci) => {
   const { course, index } = chapters[ci];
   return course.slug === "intro"
@@ -106,7 +115,7 @@ function chapterList(course) {
       return `<a class="chapter-link" href="${chapterURL(ci)}">
       <span class="ordinal">${pad(chapter.index + 1)}</span>
       <span><strong>${chapter.title}</strong><small>${lessonLabel(chapter)} · ${status}${result.answered.length}/${chapter.quiz.length}문항</small></span>
-      <span class="arrow" aria-hidden="true">↗</span></a>`;
+      ${icon("arrow-up-right")}</a>`;
     })
     .join("")}</div>`;
 }
@@ -119,7 +128,7 @@ function courseList() {
       return `<a class="chapter-link course-card" href="${courseURL(course)}">
 
       <span><strong>${course.title}</strong><small>${result.answered.length}/${entries.length}문항 풀이 · ${result.wrong.length}문항 복습</small></span>
-      <span class="arrow" aria-hidden="true">↗</span></a>`;
+      ${icon("arrow-up-right")}</a>`;
     })
     .join("")}</div>`;
 }
@@ -175,7 +184,7 @@ function chapterPage(ci) {
   return `<article class="reading">
     ${heading(`${course.title} · ${lessonLabel(chapter)}`, chapter.title, chapter.lead)}
     <div class="actions">${button(quizURL(ci, nextQuestion?.qi ?? 0), "단원 퀴즈 →")}${button(courseURL(course), "과목 목차", true)}
-      <button type="button" class="button secondary" id="mark-read" aria-pressed="${done}">${done ? "읽기 완료 ✓" : "읽기 완료 표시"}</button></div>
+      <button type="button" class="button secondary" id="mark-read" aria-pressed="${done}">${done ? "읽기 완료 " + icon("check") : "읽기 완료 표시"}</button></div>
     <section class="panel"><h2>핵심 이론</h2>${chapter.topics
       .map(
         ([name, copy]) =>
@@ -192,6 +201,7 @@ function chapterPage(ci) {
         .join("")}</tbody>
     </table></section>
     <section class="panel"><h2>예제</h2><h3>${title}</h3><pre><code>${escapeHtml(code)}</code></pre><p>${detail}</p></section>
+    ${conceptDiagram(chapter)}
     <section class="panel note"><h2>핵심 암기 노트</h2><ul>${chapter.notes.map((note) => `<li>${note}</li>`).join("")}</ul></section>
     <nav class="actions page-links" aria-label="장 이동">
       ${chapter.index > 0 ? button(chapterURL(ci - 1), "← 이전 단원", true) : button(courseURL(course), "← 과목 목차", true)}
@@ -396,7 +406,7 @@ function render(moveFocus = false) {
       : state.completed.filter((index) => index !== ci);
     persist();
     event.target.setAttribute("aria-pressed", String(toggled));
-    event.target.textContent = toggled ? "읽기 완료 ✓" : "읽기 완료 표시";
+    event.currentTarget.innerHTML = toggled ? "읽기 완료 " + icon("check") : "읽기 완료 표시";
     showStorageNotice();
   });
   updateNav(page);
