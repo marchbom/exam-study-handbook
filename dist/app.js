@@ -115,7 +115,7 @@ function chapterList(course) {
       return `<a class="chapter-link" href="${chapterURL(ci)}">
       <span class="ordinal">${pad(chapter.index + 1)}</span>
       <span><strong>${chapter.title}</strong><small>${lessonLabel(chapter)} · ${status}${result.answered.length}/${chapter.quiz.length}문항</small></span>
-      ${icon("arrow-up-right")}</a>`;
+      ${icon("chevron-right")}</a>`;
     })
     .join("")}</div>`;
 }
@@ -128,7 +128,7 @@ function courseList() {
       return `<a class="chapter-link course-card" href="${courseURL(course)}">
 
       <span><strong>${course.title}</strong><small>${result.answered.length}/${entries.length}문항 풀이 · ${result.wrong.length}문항 복습</small></span>
-      ${icon("arrow-up-right")}</a>`;
+      ${icon("chevron-right")}</a>`;
     })
     .join("")}</div>`;
 }
@@ -138,18 +138,14 @@ function home() {
   const last = chapters[state.last];
   const hasProgress =
     result.answered.length || state.completed.length || state.last;
-  return `<section class="hero">
-    <div><div class="kicker">개념부터 문제 풀이까지</div>
-      <h1>시험 대비<br>핸드북</h1>
-      <p>6과목의 핵심을 읽고 자체 제작 문제로 복습하세요.</p>
-      ${hasProgress ? button(chapterURL(state.last), `${last.course.title} 이어가기 →`) : button(courseURL(courses[0]), "컴퓨터과학개론 시작 →")}
-    </div>
-    <div class="hero-progress"><div class="kicker">전체 풀이 진도</div><strong>${result.answered.length} <span>/ ${items.length}문항</span></strong>
-      <progress aria-label="전체 풀이 진도" value="${result.answered.length}" max="${items.length}"></progress>
-    </div>
-  </section>
-  <div class="section-head"><h2>과목 선택</h2><span>6과목</span></div>
-  ${courseList()}`;
+  return `<div class="library">
+    <header class="library-head"><h1>내 학습</h1>
+      <p class="quiet">${result.answered.length} / ${items.length}문항 완료</p>
+    </header>
+    ${hasProgress ? `<section class="resume"><div><span class="quiet">이어서 읽기</span><h2>${last.title}</h2><p class="quiet">${last.course.title}</p></div>${button(chapterURL(state.last), "계속 읽기 →")}</section>` : ""}
+    <h2 class="library-label">과목</h2>
+    ${courseList()}
+  </div>`;
 }
 
 function coursePage(course) {

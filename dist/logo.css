@@ -2,9 +2,9 @@
 .brand .wordmark {
   font-family: var(--sans);
   font-size: 21px;
-  font-weight: 750;
+  font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -.045em;
+  letter-spacing: -.025em;
   color: var(--ink);
 }
 .brand .book-symbol {
@@ -36,3 +36,5 @@
 .pipeline th:first-child{width:48px}
 .pipeline th,.pipeline td{padding:8px 4px;text-align:center;font-size:.8rem}
 .pipeline .active-stage{background:#edf2f8;color:var(--primary)}
+
+.icon-chevron-right{--icon:url("icons/chevron-right.svg")}
