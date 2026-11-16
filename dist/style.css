@@ -92,3 +92,5 @@ main{padding-top:36px}
 .stat{padding:18px}
 }
 @media(max-width:350px){.shell{width:calc(100% - 20px)}.bar nav a{padding-inline:5px}.brand{gap:5px}}
+
+.course-card{grid-template-columns:minmax(0,1fr) auto}
