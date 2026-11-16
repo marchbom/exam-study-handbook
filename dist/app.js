@@ -187,6 +187,7 @@ function chapterPage(ci) {
           `<div class="topic"><h3>${name}</h3><p>${copy}</p></div>`,
       )
       .join("")}</section>
+    ${chapter.course.slug === "english" ? `<p class="quiet">이 단원의 지문과 문제는 독해 연습을 위해 자체 제작했습니다.</p>` : ""}
     ${conceptDiagram(chapter)}
     <section class="panel"><h2>비교표</h2><table aria-label="핵심 개념 비교">
       <thead><tr><th scope="col">개념</th><th scope="col">구분 기준</th></tr></thead>
@@ -198,6 +199,11 @@ function chapterPage(ci) {
         .join("")}</tbody>
     </table></section>
     <section class="panel"><h2>예제</h2><h3>${title}</h3><pre><code>${escapeHtml(code)}</code></pre><p>${detail}</p></section>
+    <details class="worked-example" open>
+      <summary>따라 풀기 · ${escapeHtml(chapter.worked.title)}</summary>
+      ${chapter.worked.scenario ? `<pre><code>${escapeHtml(chapter.worked.scenario)}</code></pre>` : ""}
+      ${stepList(chapter.worked.steps)}
+    </details>
     <section class="panel note"><h2>핵심 암기 노트</h2><ul>${chapter.notes.map((note) => `<li>${note}</li>`).join("")}</ul></section>
     <div class="actions page-links">${button(quizURL(ci, nextQuestion?.qi ?? 0), "단원 퀴즈 →")}</div>
     <nav class="actions page-links" aria-label="장 이동">

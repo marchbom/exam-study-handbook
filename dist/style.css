@@ -555,3 +555,14 @@ progress {
 .choice:has(input:disabled) {
   cursor: default;
 }
+
+.worked-example {
+  margin-block: 26px;
+  padding: 16px clamp(14px, 4vw, 22px);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.worked-example summary {
+  font-weight: 700;
+  cursor: pointer;
+}
