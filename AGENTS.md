@@ -4,7 +4,7 @@
 
 - 6과목의 학습 자료, 자체 제작 퀴즈, 오답 복습, 진도 기록을 제공하는 모바일 우선 웹앱이다.
 - 공개 문구와 README, 커밋 메시지에 사용자의 학교·재학 여부를 드러내는 학교명, 학년도, 학기, 기말, 학년 표현을 넣지 않는다.
-- 학습 내용의 정확성과 범위 확인에 필요한 출처는 일반적인 링크 이름으로 제공한다. 기존 출처 주소는 dist/courses/catalog.js와 shared.js에 있다.
+- 학습 내용의 정확성과 범위 확인에 필요한 출처는 일반적인 링크 이름으로 제공한다. 기존 출처 주소는 public/courses/catalog.js와 shared.js에 있다.
 - 본문은 Noto Sans KR을 사용한다. 상단은 책 아이콘과 Handbook 워드마크다.
 - 사용자가 선택한 초록색 터미널 모양 파비콘은 별도로 관리한다.
 - 장식적인 소개 배너와 반복 안내를 줄이고 과목, 이어 읽기, 학습 내용을 우선 배치한다.
@@ -45,16 +45,16 @@
 - 아이콘은 공식 저장소에서 받은 SVG를 로컬에 보관하고 라이선스를 함께 유지한다. 선 두께를 1.5로 조정했다.
   https://github.com/lucide-icons/lucide
   https://lucide.dev/license
-- 라이선스 파일은 dist/icons/LICENSE에 있다.
+- 라이선스 파일은 public/icons/LICENSE에 있다.
 
 ## 구조와 검증
 
 - 빌드 없이 실행되는 HTML, CSS, JavaScript 구조다.
-- dist/courses/는 과목 데이터, dist/app.js는 화면 이동과 기록, dist/quiz.js는 문항 표시와 즉시 채점, dist/diagrams.js는 학습 도식이다.
+- public/courses/는 과목 데이터, public/app.js는 화면 이동과 기록, public/quiz.js는 문항 표시와 즉시 채점, public/diagrams.js는 학습 도식이다.
 - 기존 학습 기록과 과목별 문항 ID의 호환성을 유지한다.
 - 사용자 수정 파일을 덮어쓰거나 무관한 변경을 커밋하지 않는다.
 - 실제 브라우저에서 모바일 크기, 가로 넘침, 링크, 채점, 오답 복습, 기록 유지를 변경 범위에 맞춰 확인한다.
 - 과목 행은 행 자체에 패딩을 주고 hover 배경이 그 패딩 전체를 포함하게 한다. 구분선의 inset과 내부 패딩을 혼동하지 않는다.
 - 로컬 개발 도구의 Node 버전은 .node-version을 따른다.
-- 로컬 미리보기는 `npx --yes serve@14.2.8 dist --listen tcp://127.0.0.1:8000`으로 실행한다.
-- 포맷은 Prettier 3.7.4를 사용한다. `npx --yes prettier@3.7.4 --check dist README.md AGENTS.md vercel.json`으로 확인한다.
+- 로컬 미리보기는 `npx --yes serve@14.2.8 public --listen tcp://127.0.0.1:8000`으로 실행한다.
+- 포맷은 Prettier 3.7.4를 사용한다. `npx --yes prettier@3.7.4 --check public README.md AGENTS.md vercel.json`으로 확인한다.
