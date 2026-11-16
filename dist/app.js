@@ -156,8 +156,7 @@ function coursePage(course) {
     ${heading("학습 핸드북", course.title, course.scope)}
     <div class="actions">${button(chapterURL(firstUnread), "학습 시작 →")}
       ${button(`#progress/${course.slug}`, "과목 진도", true)}
-      ${button(`#review/${course.slug}`, "과목 오답", true)}
-      ${button(`#sources/${course.slug}`, "공식 출처", true)}</div>
+      ${button(`#review/${course.slug}`, "과목 오답", true)}</div>
     ${scorePanel(entries)}
     <div class="section-head"><h2>학습 목차</h2><span>${ids.length}개 단원</span></div>
     ${chapterList(course)}
