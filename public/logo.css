@@ -109,3 +109,20 @@
 .icon-chevron-right {
   --icon: url("icons/chevron-right.svg");
 }
+
+.concept-illustration {
+  margin: 24px 0 32px;
+}
+.concept-illustration img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbf1db;
+}
+.concept-illustration figcaption {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}

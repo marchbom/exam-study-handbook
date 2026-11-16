@@ -98,3 +98,42 @@ function conceptDiagram(chapter) {
     ${figure.rows.map(([label, cells]) => `<div class="figure-step"><p>${label}</p><div class="figure-cells">${cells.map((cell, i) => `${i ? icon("arrow-right") : ""}<span class="figure-cell">${cell}</span>`).join("")}</div></div>`).join("")}
     <figcaption>${figure.caption}</figcaption></figure>`;
 }
+
+const conceptIllustrations = new Map([
+  [
+    "배열과 포인터",
+    {
+      file: "array-pointer.webp",
+      alt: "물건이 들어 있는 세 칸이 한 줄로 이어지고, 아래의 화살표 두 개가 각각 첫째 칸과 둘째 칸을 가리킨다.",
+      caption:
+        "배열을 나란히 붙은 칸으로 생각해 보세요. 첫 화살표 p는 첫 칸의 주소를 가리킵니다. p + 1은 다음 칸의 주소를 계산하며, *로 역참조해야 칸 안의 값을 읽을 수 있습니다.",
+    },
+  ],
+  [
+    "이진 탐색 트리와 균형",
+    {
+      file: "avl-rotation.webp",
+      alt: "왼쪽으로 늘어선 세 노드 중 가운데 노드가 회전 후 루트가 되고, 나머지 두 노드가 양쪽 자식이 된다.",
+      caption:
+        "LL 불균형에서 오른쪽으로 한 번 회전합니다. 진한 파란색이 30, 주황색이 20, 옅은 파란색이 10이라면 회전 뒤 20이 루트가 되고 10과 30이 양쪽 자식이 됩니다.",
+    },
+  ],
+  [
+    "기억장치 계층과 캐시",
+    {
+      file: "cache-locality.webp",
+      alt: "책상 위 작은 트레이에 카드 몇 장이 있고, 멀리 있는 보관장에는 많은 카드가 꽂혀 있다.",
+      caption:
+        "책상 위 트레이를 캐시, 멀리 있는 보관장을 주기억장치에 비유할 수 있습니다. 트레이에 둔 정보를 다시 읽는 것이 시간 지역성이고, 한 번 가져올 때 이웃한 정보도 함께 담아 두면 공간 지역성을 살릴 수 있습니다.",
+    },
+  ],
+]);
+
+function conceptIllustration(chapter) {
+  const { file, alt, caption } = conceptIllustrations.get(chapter.title) ?? {};
+  if (!file) return "";
+  return `<figure class="concept-illustration">
+    <img src="illustrations/${file}" width="1200" height="800" loading="lazy" decoding="async" alt="${escapeHtml(alt)}">
+    <figcaption>${escapeHtml(caption)}</figcaption>
+  </figure>`;
+}

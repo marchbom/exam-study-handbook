@@ -46,6 +46,18 @@
   https://github.com/lucide-icons/lucide
   https://lucide.dev/license
 - 라이선스 파일은 public/icons/LICENSE에 있다.
+- 학습 삽화는 기본 이미지 생성 기능으로 제작하고 `public/illustrations/`에 WebP로 보관한다. 이미지에는 글자를 넣지 않고, 한국어 설명과 대체 텍스트는 HTML에서 제공한다. 수치와 절차를 확인하는 도식은 별도로 유지한다.
+- 생성 프롬프트는 아래 공통 스타일과 주제별 지시를 사용했다.
+
+<details>
+<summary>학습 삽화 생성 프롬프트</summary>
+
+- 공통 스타일: A polished landscape educational editorial illustration for a quiet Korean computer science handbook. 3:2 wide composition, large simple forms readable at a phone width, gentle tactile screen-printed paper texture with crisp edges, warm ivory background, muted navy and terracotta accents, plenty of margin. Simple near frontal view, no heading, no lettering, no numerals, no watermarks, no people, no decoration unrelated to the concept. Treat the metaphor literally and keep spatial relationships clear.
+- 배열과 포인터: Show an address-reference metaphor: exactly three adjacent same-sized blue-gray memory compartments in a single horizontal rail, each holding one contrasting object. Below are exactly two small terracotta pointers that are visually separate objects, with two thin independent clean arrows from the separate pointers toward the first and second compartments respectively. No arrow to the third compartment, no links between compartments. The array stays in place; pointers are separate from contents.
+- AVL 회전: Show an educational illustration of balancing a binary tree, in two separate scenes left and right, one subtle connecting arrow from left scene to right scene. Use exactly three colored circles per tree with straight thin branch lines and ample spacing. In the left scene the chain slopes left: navy node at top, terracotta node below and to its left, pale-blue node below and to the left again; connect navy to terracotta, terracotta to pale-blue. In the right scene the same three nodes form a symmetrical tree: terracotta at top, pale-blue bottom left, navy bottom right, two branches from the terracotta node. No other nodes or branches. Clear centered composition.
+- 캐시: Show a quiet studio reading desk as a memory locality metaphor, no person. An open unmarked notebook in the foreground, then a small tidy tray holding four plain, similarly colored index cards side by side with visible separation close to the notebook. A larger clearly distant cabinet stores many cards in rows across the room, far behind the desk. Emphasize spatial contrast between quick-access few cards at arm's reach and the large backing collection farther away. Clean spatial depth and natural soft shadow.
+
+</details>
 
 ## 구조와 검증
 

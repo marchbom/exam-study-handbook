@@ -187,6 +187,7 @@ function chapterPage(ci) {
       )
       .join("")}</section>
     ${chapter.course.slug === "english" ? `<p class="quiet">이 단원의 지문과 문제는 독해 연습을 위해 자체 제작했습니다.</p>` : ""}
+    ${conceptIllustration(chapter)}
     ${conceptDiagram(chapter)}
     <section class="panel"><h2>비교표</h2><table aria-label="핵심 개념 비교">
       <thead><tr><th scope="col">개념</th><th scope="col">구분 기준</th></tr></thead>
