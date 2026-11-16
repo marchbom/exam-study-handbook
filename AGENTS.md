@@ -70,3 +70,10 @@
 - 로컬 개발 도구의 Node 버전은 .node-version을 따른다.
 - 로컬 미리보기는 `npx --yes serve@14.2.8 public --listen tcp://127.0.0.1:8000`으로 실행한다.
 - 포맷은 Prettier 3.7.4를 사용한다. `npx --yes prettier@3.7.4 --check public README.md AGENTS.md vercel.json`으로 확인한다.
+
+## 커밋 규칙
+
+- Conventional Commits 형식인 `type(scope): summary`를 사용한다. 범위를 명시할 필요가 없으면 `type: summary`로 작성한다.
+- 기능은 `feat`, 버그 수정은 `fix`, 문서는 `docs`, 동작을 유지하는 구조 변경은 `refactor`, 포맷만 바꾸는 작업은 `style`을 사용한다.
+- 제목은 짧은 영어 명령형으로 작성한다. 예: `fix(quiz): save answers before advancing`.
+- 기능, 수정, 문서, 포맷 변경을 작업 목적에 따라 커밋으로 나눈다. 이미 푸시한 커밋의 제목을 바꾸기 위해 이력을 재작성하지 않는다.
