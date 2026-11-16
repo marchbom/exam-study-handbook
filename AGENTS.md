@@ -50,12 +50,11 @@
 ## 구조와 검증
 
 - 빌드 없이 실행되는 HTML, CSS, JavaScript 구조다.
-- dist/courses/는 과목 데이터, dist/app.js는 화면과 채점·기록, dist/diagrams.js는 학습 도식이다.
+- dist/courses/는 과목 데이터, dist/app.js는 화면 이동과 기록, dist/quiz.js는 문항 표시와 즉시 채점, dist/diagrams.js는 학습 도식이다.
 - 기존 학습 기록과 과목별 문항 ID의 호환성을 유지한다.
 - 사용자 수정 파일을 덮어쓰거나 무관한 변경을 커밋하지 않는다.
 - 실제 브라우저에서 모바일 크기, 가로 넘침, 링크, 채점, 오답 복습, 기록 유지를 변경 범위에 맞춰 확인한다.
 - 과목 행은 행 자체에 패딩을 주고 hover 배경이 그 패딩 전체를 포함하게 한다. 구분선의 inset과 내부 패딩을 혼동하지 않는다.
-- Python 3로 실행할 수 있다.
-  python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
-- Vercel은 Other 프리셋과 dist 출력 디렉터리를 사용한다. 저장소 루트의 vercel.json을 따른다.
-- GitHub 원격은 marchbom/exam-study-handbook이며 배포 브랜치는 main이다.
+- 로컬 개발 도구의 Node 버전은 .node-version을 따른다.
+- 로컬 미리보기는 `npx --yes serve@14.2.8 dist --listen tcp://127.0.0.1:8000`으로 실행한다.
+- 포맷은 Prettier 3.7.4를 사용한다. `npx --yes prettier@3.7.4 --check dist README.md AGENTS.md vercel.json`으로 확인한다.
