@@ -32,19 +32,21 @@ function quizPage(ci, qi, reviewing) {
     ${heading(reviewing ? "오답 다시 풀기" : `${chapter.course.title} · ${qi + 1} / ${chapter.quiz.length}`, chapter.title, "자체 제작 객관식 · 답을 선택하면 바로 채점됩니다.")}
     <section class="panel">
       ${scenario ? `<pre class="quiz-context"><code>${escapeHtml(scenario)}</code></pre>` : ""}
-      <form id="quiz-form" class="quiz-form">
+      <div id="quiz-question" class="quiz-form">
         <fieldset><legend>${escapeHtml(prompt)}</legend>
           ${choices
             .map(
-              (choice, index) => `<label class="choice">
-          <input type="radio" name="answer" value="${index}" required>
-          <span>${String.fromCharCode(65 + index)}. ${escapeHtml(choice)}</span></label>`,
+              (
+                choice,
+                index,
+              ) => `<button type="button" class="choice" data-answer="${index}" aria-pressed="false">
+          <span>${String.fromCharCode(65 + index)}. ${escapeHtml(choice)}</span></button>`,
             )
             .join("")}
         </fieldset>
         <div id="feedback" aria-live="polite"></div>
         <div id="quiz-next" class="actions page-links" hidden>${button(next, nextLabel)}</div>
-      </form>
+      </div>
     </section>
     <nav class="actions page-links" aria-label="퀴즈 이동">
       ${button(reviewing ? reviewURL : chapterURL(ci), reviewing ? "← 오답 노트" : "← 이론으로", true)}
@@ -54,12 +56,11 @@ function quizPage(ci, qi, reviewing) {
 }
 
 function bindQuiz(ci, qi) {
-  const form = document.querySelector("#quiz-form");
-  const fieldset = form.querySelector("fieldset");
-  form.addEventListener("submit", (event) => event.preventDefault());
-  form.addEventListener("change", (event) => {
-    if (fieldset.disabled || event.target.name !== "answer") return;
-    const answer = Number(event.target.value);
+  const fieldset = document.querySelector("#quiz-question fieldset");
+  fieldset.addEventListener("click", (event) => {
+    const choice = event.target.closest("button[data-answer]");
+    if (!choice || fieldset.disabled) return;
+    const answer = Number(choice.dataset.answer);
     const question = chapters[ci].quiz[qi];
     const correct = question[2];
     if (!validIndex(answer, question[1].length)) return;
@@ -69,6 +70,7 @@ function bindQuiz(ci, qi) {
     updateNav();
     showStorageNotice();
 
+    choice.setAttribute("aria-pressed", "true");
     fieldset.disabled = true;
     document.querySelector("#feedback").innerHTML =
       `<div class="feedback${answer === correct ? "" : " wrong"}" tabindex="-1">
