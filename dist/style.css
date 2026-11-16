@@ -533,3 +533,25 @@ progress {
   .bar { flex-wrap: wrap; padding-block: 10px; row-gap: 8px; }
   .reading th, .reading td { padding: 10px 8px; }
 }
+
+.quiz-context {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+#quiz-next[hidden] {
+  display: none;
+}
+
+.solution-steps {
+  padding-inline-start: 1.5em;
+}
+.solution-steps li + li {
+  margin-top: .55em;
+}
+.feedback p {
+  margin-block: .65em;
+}
+.choice:has(input:disabled) {
+  cursor: default;
+}

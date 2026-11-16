@@ -207,70 +207,6 @@ function chapterPage(ci) {
   </article>`;
 }
 
-function quizPage(ci, qi, reviewing) {
-  const chapter = chapters[ci];
-  const [prompt, choices] = chapter.quiz[qi];
-  const reviewURL = `#review/${chapter.course.slug}`;
-  const next = reviewing
-    ? reviewURL
-    : qi + 1 < chapter.quiz.length
-      ? quizURL(ci, qi + 1)
-      : `#result/${sectionKey(ci)}`;
-  const nextLabel = reviewing
-    ? "오답 노트로"
-    : qi + 1 < chapter.quiz.length
-      ? "다음 문제 →"
-      : "단원 결과 →";
-  return `<div class="reading">
-    ${heading(reviewing ? "오답 다시 풀기" : `${chapter.course.title} · ${qi + 1} / ${chapter.quiz.length}`, chapter.title, "자체 제작 객관식 · 한 가지 답을 선택하세요.")}
-    <section class="panel">
-      <form id="quiz-form" class="quiz-form">
-        <fieldset><legend>${escapeHtml(prompt)}</legend>
-          ${choices
-            .map(
-              (choice, index) => `<label class="choice">
-          <input type="radio" name="answer" value="${index}" required>
-          <span>${String.fromCharCode(65 + index)}. ${escapeHtml(choice)}</span></label>`,
-            )
-            .join("")}
-        </fieldset>
-        <div id="feedback" aria-live="polite"></div>
-        <div class="actions page-links"><button class="button" type="submit">채점하기</button>
-          ${button(next, nextLabel, true)}</div>
-      </form>
-    </section>
-    <nav class="actions page-links" aria-label="퀴즈 이동">
-      ${button(reviewing ? reviewURL : chapterURL(ci), reviewing ? "← 오답 노트" : "← 이론으로", true)}
-      ${!reviewing && qi > 0 ? button(quizURL(ci, qi - 1), "이전 문제", true) : ""}
-    </nav>
-  </div>`;
-}
-
-function bindQuiz(ci, qi) {
-  const form = document.querySelector("#quiz-form");
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const selected = new FormData(form).get("answer");
-    if (selected === null) return;
-    const answer = Number(selected);
-    const [, choices, correct, explanation] = chapters[ci].quiz[qi];
-    state.answers[id(ci, qi)] = answer;
-    persist();
-    updateNav();
-    showStorageNotice();
-
-    form.querySelector("fieldset").disabled = true;
-    form.querySelector("button").disabled = true;
-    document.querySelector("#feedback").innerHTML =
-      `<div class="feedback${answer === correct ? "" : " wrong"}" tabindex="-1">
-      <strong>${answer === correct ? "정답입니다" : "오답입니다"}</strong>
-      ${answer !== correct ? `<p>내 답 · ${escapeHtml(choices[answer])}</p>` : ""}
-      <p>정답 · ${escapeHtml(choices[correct])}</p><p>${escapeHtml(explanation)}</p>
-    </div>`;
-    document.querySelector(".feedback").focus();
-  });
-}
-
 function scorePanel(entries) {
   const { answered, wrong, correct } = stats(entries);
   const score = answered.length
@@ -315,13 +251,12 @@ function reviewPage(course) {
         ? wrong
             .map(({ ci, qi, question, id: itemId }) => {
               const chapter = chapters[ci];
-              const [prompt, choices, correct, explanation] = question;
+              const [prompt] = question;
               return `<section class="panel">
         <div class="quiet">${chapter.course.title} · ${chapter.title} · ${qi + 1}번</div>
         <h3>${escapeHtml(prompt)}</h3>
         <details><summary>정답과 해설 보기</summary>
-          <p>내 답 · ${escapeHtml(choices[state.answers[itemId]])}</p>
-          <p>정답 · ${escapeHtml(choices[correct])}</p><p>${escapeHtml(explanation)}</p>
+          ${solution(question, state.answers[itemId])}
         </details>
         ${button(retryURL(ci, qi), "다시 풀기", true)}
       </section>`;
