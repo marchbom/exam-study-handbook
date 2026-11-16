@@ -183,7 +183,7 @@ function chapterPage(ci) {
   const done = state.completed.includes(ci);
   return `<article class="reading">
     ${heading(`${course.title} · ${lessonLabel(chapter)}`, chapter.title, chapter.lead)}
-    <div class="actions">${button(quizURL(ci, nextQuestion?.qi ?? 0), "단원 퀴즈 →")}${button(courseURL(course), "과목 목차", true)}
+    <div class="actions">${button(courseURL(course), "과목 목차", true)}
       <button type="button" class="button secondary" id="mark-read" aria-pressed="${done}">${done ? "읽기 완료 " + icon("check") : "읽기 완료 표시"}</button></div>
     <section class="panel"><h2>핵심 이론</h2>${chapter.topics
       .map(
@@ -191,6 +191,7 @@ function chapterPage(ci) {
           `<div class="topic"><h3>${name}</h3><p>${copy}</p></div>`,
       )
       .join("")}</section>
+    ${conceptDiagram(chapter)}
     <section class="panel"><h2>비교표</h2><table aria-label="핵심 개념 비교">
       <thead><tr><th scope="col">개념</th><th scope="col">구분 기준</th></tr></thead>
       <tbody>${chapter.compare
@@ -201,8 +202,8 @@ function chapterPage(ci) {
         .join("")}</tbody>
     </table></section>
     <section class="panel"><h2>예제</h2><h3>${title}</h3><pre><code>${escapeHtml(code)}</code></pre><p>${detail}</p></section>
-    ${conceptDiagram(chapter)}
     <section class="panel note"><h2>핵심 암기 노트</h2><ul>${chapter.notes.map((note) => `<li>${note}</li>`).join("")}</ul></section>
+    <div class="actions page-links">${button(quizURL(ci, nextQuestion?.qi ?? 0), "단원 퀴즈 →")}</div>
     <nav class="actions page-links" aria-label="장 이동">
       ${chapter.index > 0 ? button(chapterURL(ci - 1), "← 이전 단원", true) : button(courseURL(course), "← 과목 목차", true)}
       ${last ? button(`#progress/${course.slug}`, "과목 진도 →", true) : button(chapterURL(ci + 1), "다음 단원 →", true)}
