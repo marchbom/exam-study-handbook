@@ -148,7 +148,7 @@ function coursePage(course) {
   const entries = questionsFor(course);
   const firstUnread = ids.find((ci) => !state.completed.includes(ci)) ?? ids[0];
   return `<div class="reading">
-    ${heading('학습 핸드북', course.title, course.scope)}
+    ${heading("학습 핸드북", course.title, course.scope)}
     <div class="actions">${button(chapterURL(firstUnread), "학습 시작 →")}
       ${button(`#progress/${course.slug}`, "과목 진도", true)}
       ${button(`#review/${course.slug}`, "과목 오답", true)}
@@ -327,7 +327,7 @@ function reviewPage(course) {
 
 function sourcesPage(course) {
   const selected = course ? [course] : courses;
-  return `<div class="reading">${heading("2026학년도 2학기 · 기말", "학습 범위와 공식 출처")}
+  return `<div class="reading">${heading("참고 자료", "학습 범위와 공식 출처")}
   <p>공식 범위와 목차를 기준으로 정리했습니다. 요약과 퀴즈는 자체 제작한 학습 자료입니다.</p>
   <p><a href="${officialScope}">학습 범위 참고 자료 (PDF)</a></p>
   ${selected
