@@ -8,11 +8,11 @@
 
 브라우저에서 HTML, CSS, JavaScript로 동작합니다. 한글 본문에 Noto Sans KR을 사용합니다.
 
-| 위치 | 역할 |
-| --- | --- |
-| `dist/index.html` | 공통 화면 틀과 메뉴 |
-| `dist/courses/` | 과목별 학습 내용과 문제 |
-| `dist/app.js` | 화면 이동과 진도·오답 기록 |
-| `dist/quiz.js` | 퀴즈 화면, 즉시 채점과 풀이 |
-| `dist/diagrams.js` | 학습 도식 |
+| 위치                                             | 역할                        |
+| ------------------------------------------------ | --------------------------- |
+| `dist/index.html`                                | 공통 화면 틀과 메뉴         |
+| `dist/courses/`                                  | 과목별 학습 내용과 문제     |
+| `dist/app.js`                                    | 화면 이동과 진도·오답 기록  |
+| `dist/quiz.js`                                   | 퀴즈 화면, 즉시 채점과 풀이 |
+| `dist/diagrams.js`                               | 학습 도식                   |
 | `dist/style.css`, `dist/logo.css`, `dist/icons/` | 레이아웃, 워드마크와 아이콘 |

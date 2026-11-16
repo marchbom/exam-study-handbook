@@ -15,7 +15,8 @@ function solution(question, answer) {
 function quizPage(ci, qi, reviewing) {
   const chapter = chapters[ci];
   const [prompt, choices, , , , context] = chapter.quiz[qi];
-  const scenario = context ?? (chapter.course.slug === "english" ? chapter.example[1] : "");
+  const scenario =
+    context ?? (chapter.course.slug === "english" ? chapter.example[1] : "");
   const reviewURL = `#review/${chapter.course.slug}`;
   const next = reviewing
     ? reviewURL

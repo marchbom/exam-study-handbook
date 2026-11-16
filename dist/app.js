@@ -343,7 +343,9 @@ function render(moveFocus = false) {
       : state.completed.filter((index) => index !== ci);
     persist();
     event.target.setAttribute("aria-pressed", String(toggled));
-    event.currentTarget.innerHTML = toggled ? "읽기 완료 " + icon("check") : "읽기 완료 표시";
+    event.currentTarget.innerHTML = toggled
+      ? "읽기 완료 " + icon("check")
+      : "읽기 완료 표시";
     showStorageNotice();
   });
   updateNav(page);
