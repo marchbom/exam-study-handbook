@@ -1,0 +1,94 @@
+:root{color-scheme:light;--paper:#f4f5f1;--ink:#182724;--muted:#516560;--line:#dadfd6;--white:#fff;--forest:#133931;--accent:#d9ff74;--link:#17604e;--mono:"IBM Plex Mono",ui-monospace,monospace;--sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 var(--sans)}
+a{color:var(--link);text-underline-offset:.2em}
+button,input{font:inherit}
+button{cursor:pointer}
+button:disabled{cursor:default;opacity:.53}
+:focus-visible{outline:3px solid #247b72;outline-offset:4px}
+[tabindex="-1"]:focus{outline:none}
+.skip{position:absolute;z-index:3;top:-5rem;background:white;padding:1rem}
+.skip:focus{top:0}
+.shell{width:min(1080px,100% - 32px);margin-inline:auto}
+.top{border-bottom:1px solid var(--line);background:var(--paper)}
+.bar,.brand,.bar nav,.actions{display:flex;align-items:center}
+.bar{justify-content:space-between;gap:8px;min-height:64px}
+.brand,.bar nav a{text-decoration:none;font-weight:750;color:var(--ink)}
+.brand{gap:8px;white-space:nowrap;font-size:.93rem}
+.mark{display:grid;place-items:center;color:var(--accent);background:var(--forest);border-radius:8px;width:32px;height:32px;font:700 15px var(--mono)}
+.bar nav{gap:1px}
+.bar nav a{min-height:44px;display:flex;align-items:center;padding:0 7px;font-size:.78rem;white-space:nowrap;border-radius:8px}
+.bar nav a[aria-current]{background:#e2e9dd;color:#194f3d}
+#review-count:not(:empty){margin-left:4px;color:var(--link);font-family:var(--mono)}
+main{padding-block:22px 46px;min-height:62vh}
+.hero{background:var(--forest);color:white;border-radius:22px;padding:28px 22px;display:grid;gap:26px;overflow:hidden}
+.kicker,.ordinal,.mono{font-family:var(--sans);font-size:.77rem;letter-spacing:.065em}
+.kicker{font-weight:700}
+.hero .kicker{color:var(--accent)}
+h1,h2,h3,p{margin:0}
+h1{font-size:clamp(2rem,6vw,4.8rem);line-height:1.11;letter-spacing:-.055em;overflow-wrap:anywhere}
+h2{font-size:1.35rem;line-height:1.35;letter-spacing:-.04em}
+h3{font-size:1.04rem;line-height:1.45}
+.hero h1{margin-top:13px;word-break:keep-all;max-width:15ch}
+.hero p{margin-top:15px;color:#daebe3;max-width:33ch}
+.hero .button{margin-top:22px;background:var(--accent);color:var(--ink)}
+.hero-progress{border:1px solid #527568;background:#1d483d;border-radius:14px;padding:18px}
+.hero-progress strong{display:block;font-size:2.4rem;line-height:1.25;letter-spacing:-.05em}
+.hero-progress strong span{font-size:.9rem;font-weight:550;color:#d1e6dc;letter-spacing:normal}
+.hero-progress progress{accent-color:var(--accent)}
+.course-card .ordinal{font-family:var(--sans);font-weight:700;padding-inline:8px}
+.reading .actions .button{font-size:.9rem}
+.reading p>a{overflow-wrap:anywhere}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:8px;margin:31px 0 13px}
+.section-head span,.quiet{color:var(--muted);font-size:.875rem}
+.chapter-list{display:grid;gap:8px}
+.chapter-link,.panel,.stat{background:white;border:1px solid var(--line);border-radius:13px}
+.chapter-link{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;padding:14px;text-decoration:none;color:var(--ink);min-height:74px}
+.chapter-link:hover{border-color:#499277;background:#f9fcf7}
+.ordinal{color:var(--link);background:#eaf0e4;min-width:35px;text-align:center;padding:6px 4px;border-radius:6px}
+.chapter-link strong,.chapter-link small{display:block}
+.chapter-link small{color:var(--muted)}
+.arrow{color:var(--link);font-size:1.1rem}
+.button{display:inline-flex;align-items:center;justify-content:center;border-radius:9px;padding:9px 15px;min-height:45px;background:var(--forest);color:white;border:1px solid transparent;text-decoration:none;font-weight:750}
+.button.secondary{color:var(--forest);background:white;border-color:var(--line)}
+.actions{flex-wrap:wrap;gap:8px}
+.reading{max-width:760px;margin-inline:auto}
+.pagehead{padding:20px 0 16px}
+.pagehead .kicker{color:var(--link)}
+.pagehead h1{font-size:clamp(2rem,6vw,3.55rem);margin:8px 0 10px}
+.panel{margin:12px 0;padding:clamp(14px,4vw,27px)}
+.panel h2{margin-bottom:13px}
+.topic+.topic{margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.topic p,.panel p+p{margin-top:5px}
+details summary{cursor:pointer;font-weight:750;min-height:44px;display:list-item;padding-block:9px}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th,td{text-align:left;vertical-align:top;padding:9px 8px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+th:first-child{width:34%}
+tbody th{font-size:.92rem}
+thead{background:#eaf0e4}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#15372f;color:#ebffd2;padding:15px;border-radius:9px;font: .9rem/1.6 var(--mono)}
+.note{background:#eef5df}
+ul{padding-left:1.25em;margin:.6em 0}
+.page-links{justify-content:space-between;margin-top:20px}
+.quiz-form fieldset{border:0;margin:0;padding:0;min-width:0}
+.quiz-form legend{padding:0;font-size:1.25rem;font-weight:750;margin-bottom:12px}
+.choice{display:flex;gap:10px;align-items:center;min-height:48px;border:1px solid var(--line);padding:9px 12px;margin:7px 0;border-radius:9px;cursor:pointer}
+.choice:has(:checked){border-color:var(--link);background:#e8f2e8}
+.choice input{accent-color:var(--link)}
+.feedback{padding:13px;margin:13px 0;border-radius:9px;background:#e9f4dd}
+.feedback.wrong{background:#fff0df}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:12px 0}
+.stat{padding:12px 8px}
+.stat strong{display:block;font:700 clamp(1.05rem,4vw,1.65rem) var(--mono)}
+progress{width:100%;height:.7rem;accent-color:var(--link)}
+.foot{border-top:1px solid var(--line);padding:16px 0 30px;font-size:.81rem;color:var(--muted)}
+@media(min-width:660px){
+.shell{width:min(1080px,100% - 64px)}
+.bar nav{gap:9px}.bar nav a{padding-inline:15px;font-size:.91rem}
+main{padding-top:36px}
+.hero{grid-template-columns:1.35fr 1fr;align-items:center;padding:44px}
+.chapter-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+.reading .chapter-list{grid-template-columns:1fr}
+.stat{padding:18px}
+}
+@media(max-width:350px){.shell{width:calc(100% - 20px)}.bar nav a{padding-inline:5px}.brand{gap:5px}}
