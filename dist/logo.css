@@ -1,0 +1,11 @@
+.brand .wordmark {
+  font-family: "Explora", "Snell Roundhand", "Segoe Script", cursive;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--forest);
+}
+@media (max-width: 350px) {
+  .brand .wordmark { font-size: 38px; }
+}
