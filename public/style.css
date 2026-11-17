@@ -19,7 +19,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font: 18px/1.75 var(--sans);
+  font: 1.0625rem/1.75 var(--sans);
 }
 a {
   color: var(--link);
@@ -160,7 +160,7 @@ h2 {
   letter-spacing: -0.04em;
 }
 h3 {
-  font-size: 1.04rem;
+  font-size: 1.1875rem;
   line-height: 1.45;
 }
 .hero h1 {
@@ -354,7 +354,7 @@ pre {
   color: #f0f4fa;
   padding: 15px;
   border-radius: 9px;
-  font: 0.9rem/1.6 var(--mono);
+  font: 0.9375rem/1.6 var(--mono);
 }
 .note {
   background: #f1f5fa;
@@ -431,6 +431,9 @@ progress {
   color: var(--muted);
 }
 @media (min-width: 660px) {
+  body {
+    font-size: 1.125rem;
+  }
   .shell {
     width: min(1080px, 100% - 64px);
   }
@@ -665,6 +668,8 @@ progress {
 }
 .reading .topic p {
   margin-top: 10px;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 .reading th,
 .reading td {

@@ -81,7 +81,7 @@
   flex-basis: 14px;
 }
 .concept-figure figcaption {
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   margin-top: 14px;
   color: var(--muted);
 }
@@ -123,6 +123,6 @@
 }
 .concept-illustration figcaption {
   margin-top: 10px;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   color: var(--muted);
 }
