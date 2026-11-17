@@ -5,11 +5,11 @@ const englishChapters = [
     [
       [
         "문명의 배경을 읽기",
-        "civilization은 문명, fertile은 비옥한, harvest는 수확을 뜻한다. 강의 범람과 토양의 비옥함을 연결하는 글에서는 원인과 결과를 나타내는 접속사에 표시한다.",
+        "<strong>civilization</strong>은 문명, <strong>fertile</strong>은 비옥한, <strong>harvest</strong>는 수확을 뜻한다. 강의 범람과 토양의 비옥함을 연결하는 글에서는 원인과 결과를 나타내는 접속사에 표시한다.",
       ],
       [
         "문장 구조",
-        "because 뒤에는 주어와 동사를 갖춘 절이 오고 because of 뒤에는 명사구가 온다. was built나 were buried는 be동사와 과거분사를 결합한 수동태다.",
+        "<strong>because</strong> 뒤에는 주어와 동사를 갖춘 절이 오고 <strong>because of</strong> 뒤에는 명사구가 온다. was built나 were buried는 be동사와 과거분사를 결합한 <strong>수동태</strong>다.",
       ],
     ],
     [
@@ -43,11 +43,11 @@ const englishChapters = [
     [
       [
         "두려움에 관한 설명 읽기",
-        "threat는 위협, response는 반응, perceive는 인식하다라는 뜻이다. 실제 위협과 인식한 위협을 글에서 구분한다. even though가 양보를 도입하면 뒤에 이어지는 핵심 주장과 함께 읽는다.",
+        "<strong>threat</strong>는 위협, <strong>response</strong>는 반응, perceive는 인식하다라는 뜻이다. 실제 위협과 인식한 위협을 글에서 구분한다. <strong>even though</strong>가 양보를 도입하면 뒤에 이어지는 핵심 주장과 함께 읽는다.",
       ],
       [
         "표현 묶음",
-        "be afraid of 뒤에는 명사나 동명사가 올 수 있다. be afraid to do는 어떤 행동을 하기를 두려워한다는 뜻이다. trigger a response는 반응을 촉발한다는 표현이다.",
+        "<strong>be afraid of</strong> 뒤에는 명사나 동명사가 올 수 있다. <strong>be afraid to do</strong>는 어떤 행동을 하기를 두려워한다는 뜻이다. trigger a response는 반응을 촉발한다는 표현이다.",
       ],
     ],
     [
@@ -82,11 +82,11 @@ const englishChapters = [
     [
       [
         "주체와 쟁점 구분",
-        "artist는 창작자, consent는 동의, permission은 허락, compensation은 보상이다. 글에서 누가 자료를 썼고 누가 동의 여부나 보상을 문제 삼는지 구별한다.",
+        "artist는 창작자, <strong>consent</strong>는 동의, <strong>permission</strong>은 허락, <strong>compensation</strong>은 보상이다. 글에서 누가 자료를 썼고 누가 동의 여부나 보상을 문제 삼는지 구별한다.",
       ],
       [
         "동사 패턴",
-        "object to에서 to는 전치사여서 명사나 동명사를 받는다. argue that 뒤에는 주장 내용을 담은 절이 온다. while은 시간이나 대조를 나타낼 수 있다.",
+        "<strong>object to</strong>에서 to는 전치사여서 명사나 동명사를 받는다. <strong>argue that</strong> 뒤에는 주장 내용을 담은 절이 온다. while은 시간이나 대조를 나타낼 수 있다.",
       ],
     ],
     [
@@ -125,11 +125,11 @@ const englishChapters = [
     [
       [
         "예측의 강도",
-        "trend는 일정 기간 나타나는 변화의 방향, forecast는 전망하다 또는 전망이다. may, could, likely는 확정된 사실과 다른 가능성 수준을 드러낸다.",
+        "<strong>trend</strong>는 일정 기간 나타나는 변화의 방향, <strong>forecast</strong>는 전망하다 또는 전망이다. <strong>may</strong>, could, <strong>likely</strong>는 확정된 사실과 다른 가능성 수준을 드러낸다.",
       ],
       [
         "증감 표현",
-        "rise by는 변화량을, rise to는 도달점을 나타낸다. from A to B는 시작과 끝을 함께 나타낸다. 수치와 예측 표현을 나눠 읽는다.",
+        "<strong>rise by</strong>는 변화량을, <strong>rise to</strong>는 도달점을 나타낸다. <strong>from A to B</strong>는 시작과 끝을 함께 나타낸다. 수치와 예측 표현을 나눠 읽는다.",
       ],
     ],
     [
@@ -164,11 +164,11 @@ const englishChapters = [
     [
       [
         "공동체 이야기의 흐름",
-        "community는 공동체, cooperation은 협력, resilience는 어려움을 겪고 적응하거나 회복하는 능력이다. 인물의 행동과 그 결과를 따라가면 글의 중심 가치를 확인할 수 있다.",
+        "<strong>community</strong>는 공동체, <strong>cooperation</strong>은 협력, <strong>resilience</strong>는 어려움을 겪고 적응하거나 회복하는 능력이다. 인물의 행동과 그 결과를 따라가면 글의 중심 가치를 확인할 수 있다.",
       ],
       [
         "문장 연결",
-        "who는 사람을, which는 사물 등을 받는 관계대명사로 쓸 수 있다. therefore는 앞 내용의 결과나 결론을 이어준다. however는 대조 전환을 나타낸다.",
+        "who는 사람을, which는 사물 등을 받는 <strong>관계대명사</strong>로 쓸 수 있다. <strong>therefore</strong>는 앞 내용의 결과나 결론을 이어준다. <strong>however</strong>는 대조 전환을 나타낸다.",
       ],
     ],
     [
@@ -203,11 +203,11 @@ const englishChapters = [
     [
       [
         "주제와 뒷받침",
-        "inspiration은 영감, perspective는 관점, collaboration은 협업을 뜻한다. 글의 중심 주장과 주장을 설명하는 사례를 구별한다. for instance는 사례를, in contrast는 대조를 예고한다.",
+        "<strong>inspiration</strong>은 영감, <strong>perspective</strong>는 관점, collaboration은 협업을 뜻한다. 글의 중심 주장과 주장을 설명하는 사례를 구별한다. <strong>for instance</strong>는 사례를, <strong>in contrast</strong>는 대조를 예고한다.",
       ],
       [
         "동사와 전치사",
-        "contribute to는 ~에 기여하다. 여기서 to는 전치사다. draw on은 경험이나 자원을 활용한다는 뜻이다. 다양한 관점이 아이디어를 어떻게 변화시키는지 문장 사이에서 파악한다.",
+        "<strong>contribute to</strong>는 ~에 기여하다. 여기서 to는 전치사다. <strong>draw on</strong>은 경험이나 자원을 활용한다는 뜻이다. 다양한 관점이 아이디어를 어떻게 변화시키는지 문장 사이에서 파악한다.",
       ],
     ],
     [
