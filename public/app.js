@@ -337,6 +337,7 @@ function render(moveFocus = false) {
 
   document.title = `${main.querySelector("h1").textContent} | 시험 핸드북`;
   if (isQuiz) bindQuiz(ci, qi);
+  if (page === "chapter" && chapterValid) bindReadingNotes(ci);
   document.querySelector("#mark-read")?.addEventListener("click", (event) => {
     const toggled = !state.completed.includes(ci);
     state.completed = toggled

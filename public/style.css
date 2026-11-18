@@ -723,3 +723,60 @@ progress {
   font-weight: 700;
   cursor: pointer;
 }
+
+.plain-language {
+  margin-block: 0 24px;
+  padding: 16px;
+  border-left: 3px solid var(--primary);
+  background: #edf2f8;
+}
+.plain-language > strong {
+  display: block;
+  margin-bottom: 6px;
+}
+.footnote-ref,
+.footnote-back {
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--link);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.footnote-ref {
+  display: inline-block;
+  min-width: 28px;
+  padding: 3px 4px;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  vertical-align: super;
+}
+.reading-footnotes {
+  margin-block: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.reading-footnotes ol {
+  padding-left: 1.5em;
+}
+.reading-footnotes li {
+  padding: 12px 4px;
+  scroll-margin-block: 24px;
+}
+.reading-footnotes li + li {
+  margin-top: 8px;
+}
+.reading-footnotes p {
+  margin-top: 4px;
+}
+.footnote-back {
+  min-height: 44px;
+  padding: 8px 0;
+  font-size: 0.9375rem;
+}
+.reading-footnotes li:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
