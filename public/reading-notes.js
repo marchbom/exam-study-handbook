@@ -741,7 +741,9 @@ function bindReadingNotes(ci) {
         reference.type = "button";
         reference.className = "footnote-ref";
         reference.id = `reading-ref-${number}`;
-        reference.dataset.noteTarget = `reading-note-${number}`;
+        reference.dataset.term = term;
+        reference.setAttribute("aria-haspopup", "dialog");
+        reference.setAttribute("aria-controls", "term-dialog");
         reference.setAttribute("aria-label", `${term} 뜻, 각주 ${number}`);
         reference.textContent = `[${number}]`;
         fragment.append(reference);
@@ -754,38 +756,47 @@ function bindReadingNotes(ci) {
     }
   }
   if (!used.size) return;
-  const notes = document.createElement("section");
-  notes.className = "reading-footnotes";
-  notes.setAttribute("aria-labelledby", "reading-notes-heading");
+  const dialog = document.createElement("dialog");
+  dialog.id = "term-dialog";
+  dialog.className = "term-dialog";
+  dialog.setAttribute("aria-labelledby", "term-dialog-title");
+  dialog.setAttribute("aria-describedby", "term-dialog-copy");
   const heading = document.createElement("h2");
-  heading.id = "reading-notes-heading";
-  heading.textContent = "용어 풀이";
-  const list = document.createElement("ol");
-  for (const [term, number] of used) {
-    const definition = guide.terms.find(([name]) => name === term)[1];
-    const item = document.createElement("li");
-    item.id = `reading-note-${number}`;
-    item.tabIndex = -1;
-    const name = document.createElement("strong");
-    name.textContent = term;
-    const copy = document.createElement("p");
-    copy.textContent = definition;
-    const back = document.createElement("button");
-    back.type = "button";
-    back.className = "footnote-back";
-    back.dataset.noteTarget = `reading-ref-${number}`;
-    back.textContent = "본문으로 돌아가기";
-    back.setAttribute("aria-label", `${term} 각주 ${number} 본문으로 돌아가기`);
-    item.append(name, copy, back);
-    list.append(item);
-  }
-  notes.append(heading, list);
-  article.querySelector(".page-links").before(notes);
+  heading.id = "term-dialog-title";
+  const copy = document.createElement("p");
+  copy.id = "term-dialog-copy";
+  const close = document.createElement("button");
+  close.type = "button";
+  close.className = "term-dialog-close";
+  close.textContent = "닫기";
+  close.autofocus = true;
+  dialog.append(heading, copy, close);
+  article.append(dialog);
+
+  let trigger;
   article.addEventListener("click", (event) => {
-    const control = event.target.closest("button[data-note-target]");
-    if (!control) return;
-    const target = document.getElementById(control.dataset.noteTarget);
-    target.focus({ preventScroll: true });
-    target.scrollIntoView({ block: "center" });
+    const reference = event.target.closest(".footnote-ref");
+    if (!reference) return;
+    trigger = reference;
+    heading.textContent = reference.dataset.term;
+    copy.textContent = guide.terms.find(
+      ([term]) => term === reference.dataset.term,
+    )[1];
+    dialog.showModal();
   });
+  close.addEventListener("click", () => dialog.close());
+  dialog.addEventListener("click", (event) => {
+    if (event.target !== dialog) return;
+    const box = dialog.getBoundingClientRect();
+    if (
+      event.clientX < box.left ||
+      event.clientX > box.right ||
+      event.clientY < box.top ||
+      event.clientY > box.bottom
+    )
+      dialog.close();
+  });
+  dialog.addEventListener("close", () =>
+    trigger?.focus({ preventScroll: true }),
+  );
 }

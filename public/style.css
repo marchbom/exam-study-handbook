@@ -734,8 +734,7 @@ progress {
   display: block;
   margin-bottom: 6px;
 }
-.footnote-ref,
-.footnote-back {
+.footnote-ref {
   border: 0;
   border-radius: 4px;
   background: transparent;
@@ -752,31 +751,42 @@ progress {
   line-height: 1.5;
   vertical-align: super;
 }
-.reading-footnotes {
-  margin-block: 32px;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
+.term-dialog {
+  width: min(360px, calc(100% - 40px));
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 22px;
+  background: var(--white);
+  color: var(--ink);
+  box-shadow: 0 16px 48px #20252b24;
+  font: inherit;
 }
-.reading-footnotes ol {
-  padding-left: 1.5em;
+.term-dialog::backdrop {
+  background: #20252b55;
 }
-.reading-footnotes li {
-  padding: 12px 4px;
-  scroll-margin-block: 24px;
+.term-dialog h2 {
+  font-size: 1.125rem;
+  line-height: 1.4;
 }
-.reading-footnotes li + li {
-  margin-top: 8px;
+.term-dialog p {
+  margin-top: 10px;
+  font-size: 1rem;
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
-.reading-footnotes p {
-  margin-top: 4px;
-}
-.footnote-back {
+.term-dialog-close {
+  display: block;
+  min-width: 64px;
   min-height: 44px;
-  padding: 8px 0;
-  font-size: 0.9375rem;
-}
-.reading-footnotes li:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 4px;
-  border-radius: 4px;
+  margin: 16px 0 0 auto;
+  padding: 8px 14px;
+  border: 0;
+  border-radius: 8px;
+  background: #edf2f8;
+  color: var(--link);
+  font: inherit;
 }
